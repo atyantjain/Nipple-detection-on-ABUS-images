@@ -10,3 +10,20 @@ B.	Experiment and Results
 
 Firstly, from the collected data the input slices of images were down sampled to a 128×128 in flat resolution to simplify computation. From a sample of 25 patients, all the slices which have a nipple on the images together were used, with approximately 2/3 of those randomly picked slices as the training data. There were a total of 131 slices with a nipple used, including 91 slices for training and 20 slices each for validation and test. The selected data for train, validation, and test must be totally unbiased and random. The randomness of data leads to better performance of the U-Net and prevents the case of over-fitting. Thus, the division of data into train, test, and validation was done using a split-train program. The selected data was then loaded into the GRA U-Net.
 The experiment was performed on a computer with the configurations: Python 3.6.5: Anaconda, Keras (2.2.4) framework, calls Tensor flow (1.11.0) with Adam optimizer, NVIDIA Quadro P400 GPU with 8GB graphics card’s memory, operating system version windows 10, CUDA version 9.0.176.
+
+
+DATA .PY
+
+this is program convers the images into numpy arrays and basically ncreates numpy files for each test, train and validation data.
+
+UNETDEEPLIDATE.PY
+
+this program trains accessing numpy data created by DATA.Py
+
+PREDICT.PY
+
+this program usees weights created by UNETDEEPLIDATE.PY to predict on test images and provide various performance metric like accuracy and loss etc.
+
+PLOTONE.PY
+
+this program is only used to plot AUC and ROC curves from predicted data
